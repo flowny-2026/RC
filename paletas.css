@@ -1,0 +1,525 @@
+
+/* Hero Section */
+.hero-paletas {
+    height: 70vh;
+    background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23F5F5F5" width="1200" height="800"/><path fill="%23F4A261" opacity="0.1" d="M0,400 Q300,200 600,400 T1200,400 V800 H0 Z"/></svg>');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Esta propriedade já define a cor branca para todo o texto */
+    position: relative;
+}
+
+.hero-paletas h1 {
+    font-size: 3.5rem;
+    margin-left: -650px; 
+    margin-bottom: 0.8rem;
+    animation: fadeInUp 1s ease;
+    color: white !important; /* Força a cor branca */
+}
+
+.hero-paletas p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    margin-left: -650px;
+    color: #F5F5F5;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Seções */
+section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #F4A261;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #2F2F2F;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+/* Paletas de Cores */
+.paletas-section {
+    background: #F5F5F5;
+}
+
+.paletas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.paleta-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #F4A261;
+}
+
+.paleta-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.paleta-card h3 {
+    color: #1D3557;
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cores-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cor-circulo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cor-circulo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.cor-circulo::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #2F2F2F;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cor-circulo:hover::after {
+    opacity: 1;
+}
+
+.paleta-desc {
+    color: #2F2F2F;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.btn-selecionar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #F4A261;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(244, 162, 97, 0.3);
+}
+
+.btn-selecionar:hover {
+    background: #E76F51;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+}
+
+.paleta-card.selecionada {
+    border: 3px solid #F4A261;
+    background: linear-gradient(135deg, #FFF, #FFF8F0);
+}
+
+/* Paleta Selecionada */
+.paleta-selecionada {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    border-top: 4px solid #F4A261;
+}
+
+.paleta-selecionada h3 {
+    color: #1D3557;
+    margin-bottom: 1rem;
+}
+
+.cores-selecionadas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Calculadora */
+.calculadora-section {
+    background: white;
+}
+
+.calculadora-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.calc-form {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 4px solid #F4A261;
+}
+
+.calc-form h3 {
+    color: #1D3557;
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1D3557;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #F4A261;
+}
+
+.btn-calcular {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #F4A261;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(244, 162, 97, 0.3);
+    width: 100%;
+}
+
+.btn-calcular:hover {
+    background: #E76F51;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+}
+
+.calc-resultado {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 4px solid #F4A261;
+}
+
+.calc-resultado h3 {
+    color: #1D3557;
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.resultado-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #F5F5F5;
+    border-radius: 8px;
+}
+
+.resultado-item i {
+    color: #F4A261;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.resultado-item span {
+    flex: 1;
+    color: #2F2F2F;
+    opacity: 0.8;
+}
+
+.resultado-item strong {
+    color: #1D3557;
+    font-size: 1.1rem;
+}
+
+.resultado-observacao {
+    background: #E8F4FD;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #2196F3;
+}
+
+.btn-orcamento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    width: 100%;
+}
+
+.btn-orcamento:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+
+
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .calculadora-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .cores-container {
+        gap: 0.5rem;
+    }
+    
+    .cor-circulo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-paletas h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-paletas p {
+        font-size: 1rem;
+    }
+    
+    .paletas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+}
+
+/* Animações para o menu hambúrguer - Atualizado com base no footer.css */
+@keyframes navItemFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+    }
+    
+    .hamburger span {
+        height: 3px;
+        width: 100%;
+        background: white;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+    }
+    
+    .hamburger span:nth-child(1) {
+        top: -7px;
+    }
+    
+    .hamburger span:nth-child(2) {
+        top: -8px;
+    }
+    
+    .hamburger span:nth-child(3) {
+        top: -10px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        top: 8px;
+        transform: rotate(135deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        top: 8px;
+        transform: rotate(-135deg);
+    }
+    
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        height: 50vh; 
+        width: 50%; /* Alterado para ocupar apenas metade da largura da tela */
+        background-color: #1D3557;
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px; /* Adicionado para melhorar a aparência */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+        display: flex;
+    }
+    
+    .nav-menu li {
+        margin: 1.5rem 0;
+        text-align: center;
+        opacity: 0;
+    }
+    
+    .nav-menu.active li {
+        opacity: 1;
+        transition: opacity 0.4s ease-in-out;
+    }
+    
+    .nav-menu.active li:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+    
+    .nav-menu.active li:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+    
+    .nav-menu.active li:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+    
+    .nav-menu.active li:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+    
+    .nav-menu a {
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+        color: #F4A261;
+    }
+}

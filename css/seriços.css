@@ -1,0 +1,72 @@
+/* Serviços */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.servico-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(29, 53, 87, 0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #F4A261;
+}
+
+.servico-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(29, 53, 87, 0.15);
+}
+
+.servico-icon {
+    width: 80px;
+    height: 80px;
+    background: #F4A261;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 5px 15px rgba(244, 162, 97, 0.3);
+}
+
+.servico-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.servico-card h3 {
+    color: #1D3557;
+    margin-bottom: 1rem;
+}
+
+.servico-card ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+.servico-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #E5E5E5;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #2F2F2F;
+}
+
+.servico-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #F4A261;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,52 @@
+.sobre {
+    background: #E5E5E5;
+}
+
+.sobre-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.sobre-text h3 {
+    color: #1D3557;
+    margin-bottom: 1.5rem;
+}
+
+.diferenciais {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.diferencial {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.diferencial i {
+    color: #F4A261;
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.diferencial h4 {
+    color: #1D3557;
+    margin-bottom: 0.5rem;
+}
+
+.sobre-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(29, 53, 87, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .sobre-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

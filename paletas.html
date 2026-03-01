@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paletas de Cores e Calculadora - RC Pinturas e Decorações</title>
+    <meta name="description" content="Explore nossas paletas de cores profissionais e calcule a quantidade de tinta necessária para seu projeto. RC Pinturas - Qualidade e estilo em cada ambiente.">
+    <meta name="keywords" content="paletas de cores, calculadora de tinta, pintura, decoração, cores, RC Pinturas">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+     <link rel="stylesheet" href="css/flutuante.css">
+     <link rel="stylesheet" href="css/reset.css">
+     <link rel="stylesheet" href="css/footer.css">
+     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="paletas.css">
+    <link rel="shortcut icon" href="logo_atual-removebg-preview.png" type="image/x-icon">
+    
+    <!-- SEO e Social Media -->
+    <link rel="canonical" href="https://www.rcpinturas.com.br/paletas.html">
+    <meta property="og:title" content="Paletas de Cores e Calculadora - RC Pinturas">
+    <meta property="og:description" content="Explore paletas de cores profissionais e calcule a quantidade de tinta necessária para seu projeto.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://www.rcpinturas.com.br/paletas.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema.org para SEO local -->
+    <script type="settings.json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Paletas de Cores e Calculadora - RC Pinturas",
+      "description": "Explore paletas de cores profissionais e calcule a quantidade de tinta necessária para seu projeto",
+      "url": "https://www.rcpinturas.com.br/paletas.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "RC Pinturas e Decorações",
+        "url": "https://www.rcpinturas.com.br"
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "RC Pinturas e Decorações",
+        "telephone": "+55-(11) 95583-8039",
+        "email": "contato@rcpinturas.com.br"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="img/logo_atual-removebg-preview.png" alt="RC Pinturas" class="logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Voltar ao Site</a></li>
+                    <li><a href="#paletas">Paletas</a></li>
+                    <li><a href="#calculadora">Calculadora</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-paletas" style="background-image: url('img/rolo-de-pintura-rosa.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
+        <!-- Add a semi-transparent overlay for better text readability -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1>Escolha sua Paleta de Cores</h1>
+            <p>Explore nossas combinações profissionais e calcule a quantidade de tinta necessária</p>
+        </div>
+    </section>
+
+    <!-- Paletas de Cores -->
+    <section id="paletas" class="paletas-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Paletas de Cores</h2>
+                <p>Clique em uma paleta para selecioná-la</p>
+            </div>
+            
+            <div class="paletas-grid">
+                <!-- Paleta 1: Tons Neutros -->
+                <div class="paleta-card" data-paleta="neutros">
+                    <h3>Tons Neutros</h3>
+                    <div class="cores-container">
+                        <div class="cor-circulo" style="background-color: #F5F5F5" data-cor="#F5F5F5" title="Branco Gelo"></div>
+                        <div class="cor-circulo" style="background-color: #E8E8E8" data-cor="#E8E8E8" title="Cinza Claro"></div>
+                        <div class="cor-circulo" style="background-color: #BDBDBD" data-cor="#BDBDBD" title="Cinza Médio"></div>
+                        <div class="cor-circulo" style="background-color: #757575" data-cor="#757575" title="Cinza Escuro"></div>
+                        <div class="cor-circulo" style="background-color: #424242" data-cor="#424242" title="Carvão"></div>
+                    </div>
+                    <p class="paleta-desc">Elegante e atemporal, perfeita para ambientes sofisticados</p>
+                    <button class="btn-selecionar">Selecionar Paleta</button>
+                </div>
+
+                <!-- Paleta 2: Azuis Modernos -->
+                <div class="paleta-card" data-paleta="azuis">
+                    <h3>Azuis Modernos</h3>
+                    <div class="cores-container">
+                        <div class="cor-circulo" style="background-color: #E3F2FD" data-cor="#E3F2FD" title="Azul Bebê"></div>
+                        <div class="cor-circulo" style="background-color: #90CAF9" data-cor="#90CAF9" title="Azul Claro"></div>
+                        <div class="cor-circulo" style="background-color: #42A5F5" data-cor="#42A5F5" title="Azul Médio"></div>
+                        <div class="cor-circulo" style="background-color: #1E88E5" data-cor="#1E88E5" title="Azul Intenso"></div>
+                        <div class="cor-circulo" style="background-color: #0D47A1" data-cor="#0D47A1" title="Azul Marinho"></div>
+                    </div>
+                    <p class="paleta-desc">Transmite confiança e tranquilidade, ideal para escritórios</p>
+                    <button class="btn-selecionar">Selecionar Paleta</button>
+                </div>
+
+                <!-- Paleta 3: Verdes Naturais -->
+                <div class="paleta-card" data-paleta="verdes">
+                    <h3>Verdes Naturais</h3>
+                    <div class="cores-container">
+                        <div class="cor-circulo" style="background-color: #E8F5E8" data-cor="#E8F5E8" title="Verde Suave"></div>
+                        <div class="cor-circulo" style="background-color: #A5D6A7" data-cor="#A5D6A7" title="Verde Claro"></div>
+                        <div class="cor-circulo" style="background-color: #66BB6A" data-cor="#66BB6A" title="Verde Médio"></div>
+                        <div class="cor-circulo" style="background-color: #43A047" data-cor="#43A047" title="Verde Intenso"></div>
+                        <div class="cor-circulo" style="background-color: #2E7D32" data-cor="#2E7D32" title="Verde Escuro"></div>
+                    </div>
+                    <p class="paleta-desc">Conecta com a natureza, perfeita para ambientes relaxantes</p>
+                    <button class="btn-selecionar">Selecionar Paleta</button>
+                </div>
+
+                <!-- Paleta 4: Tons Terrosos -->
+                <div class="paleta-card" data-paleta="terrosos">
+                    <h3>Tons Terrosos</h3>
+                    <div class="cores-container">
+                        <div class="cor-circulo" style="background-color: #FFF8E1" data-cor="#FFF8E1" title="Bege Claro"></div>
+                        <div class="cor-circulo" style="background-color: #FFCC80" data-cor="#FFCC80" title="Pêssego"></div>
+                        <div class="cor-circulo" style="background-color: #FF8A65" data-cor="#FF8A65" title="Terracota"></div>
+                        <div class="cor-circulo" style="background-color: #D84315" data-cor="#D84315" title="Tijolo"></div>
+                        <div class="cor-circulo" style="background-color: #8D6E63" data-cor="#8D6E63" title="Marrom"></div>
+                    </div>
+                    <p class="paleta-desc">Aconchegante e acolhedora, ideal para salas de estar</p>
+                    <button class="btn-selecionar">Selecionar Paleta</button>
+                </div>
+
+                <!-- Paleta 5: Tons Vibrantes -->
+                <div class="paleta-card" data-paleta="vibrantes">
+                    <h3>Tons Vibrantes</h3>
+                    <div class="cores-container">
+                        <div class="cor-circulo" style="background-color: #FFF3E0" data-cor="#FFF3E0" title="Laranja Suave"></div>
+                        <div class="cor-circulo" style="background-color: #FFB74D" data-cor="#FFB74D" title="Laranja Claro"></div>
+                        <div class="cor-circulo" style="background-color: #FF9800" data-cor="#FF9800" title="Laranja"></div>
+                        <div class="cor-circulo" style="background-color: #F57C00" data-cor="#F57C00" title="Laranja Intenso"></div>
+                        <div class="cor-circulo" style="background-color: #E65100" data-cor="#E65100" title="Laranja Escuro"></div>
+                    </div>
+                    <p class="paleta-desc">Energética e estimulante, perfeita para espaços criativos</p>
+                    <button class="btn-selecionar">Selecionar Paleta</button>
+                </div>
+
+                <!-- Paleta 6: Tons Pastéis -->
+                <div class="paleta-card" data-paleta="pasteis">
+                    <h3>Tons Pastéis</h3>
+                    <div class="cores-container">
+                        <div class="cor-circulo" style="background-color: #F8BBD9" data-cor="#F8BBD9" title="Rosa Pastel"></div>
+                        <div class="cor-circulo" style="background-color: #E1BEE7" data-cor="#E1BEE7" title="Lilás Pastel"></div>
+                        <div class="cor-circulo" style="background-color: #BBDEFB" data-cor="#BBDEFB" title="Azul Pastel"></div>
+                        <div class="cor-circulo" style="background-color: #C8E6C9" data-cor="#C8E6C9" title="Verde Pastel"></div>
+                        <div class="cor-circulo" style="background-color: #FFE0B2" data-cor="#FFE0B2" title="Pêssego Pastel"></div>
+                    </div>
+                    <p class="paleta-desc">Delicada e suave, ideal para quartos infantis</p>
+                    <button class="btn-selecionar">Selecionar Paleta</button>
+                </div>
+            </div>
+
+            <!-- Paleta Selecionada -->
+            <div class="paleta-selecionada" id="paletaSelecionada" style="display: none;">
+                <h3>Paleta Selecionada:</h3>
+                <div class="cores-selecionadas" id="coresSelecionadas"></div>
+                <p id="descricaoSelecionada"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculadora de Tinta -->
+    <section id="calculadora" class="calculadora-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Calculadora de Tinta</h2>
+                <p>Calcule a quantidade exata de tinta necessária para seu projeto</p>
+            </div>
+
+            <div class="calculadora-container">
+                <div class="calc-form">
+                    <h3>Dados do Ambiente</h3>
+                    
+                    <div class="form-group">
+                        <label for="largura">Largura (metros):</label>
+                        <input type="number" id="largura" step="0.1" min="0" placeholder="Ex: 4.5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comprimento">Comprimento (metros):</label>
+                        <input type="number" id="comprimento" step="0.1" min="0" placeholder="Ex: 6.0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="altura">Altura (metros):</label>
+                        <input type="number" id="altura" step="0.1" min="0" placeholder="Ex: 2.8">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="portas">Número de Portas:</label>
+                        <input type="number" id="portas" min="0" value="0" placeholder="Ex: 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="janelas">Número de Janelas:</label>
+                        <input type="number" id="janelas" min="0" value="0" placeholder="Ex: 3">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demãos">Número de Demãos:</label>
+                        <select id="demãos">
+                            <option value="1">1 Demão</option>
+                            <option value="2" selected>2 Demãos (Recomendado)</option>
+                            <option value="3">3 Demãos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoTinta">Tipo de Tinta:</label>
+                        <select id="tipoTinta">
+                            <option value="18">Tinta Látex (18m²/L)</option>
+                            <option value="12">Tinta Acrílica (12m²/L)</option>
+                            <option value="8">Tinta Esmalte (8m²/L)</option>
+                            <option value="15">Tinta Fosca (15m²/L)</option>
+                        </select>
+                    </div>
+
+                    <button onclick="calcularTinta()" class="btn-calcular">
+                        <i class="fas fa-calculator"></i> Calcular Quantidade
+                    </button>
+                </div>
+
+                <div class="calc-resultado" id="resultado" style="display: none;">
+                    <h3>Resultado do Cálculo</h3>
+                    <div class="resultado-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>Área Total:</span>
+                        <strong id="areaTotal">0 m²</strong>
+                    </div>
+                    <div class="resultado-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Área a Pintar:</span>
+                        <strong id="areaPintar">0 m²</strong>
+                    </div>
+                    <div class="resultado-item">
+                        <i class="fas fa-paint-roller"></i>
+                        <span>Quantidade de Tinta:</span>
+                        <strong id="quantidadeTinta">0 L</strong>
+                    </div>
+                    <div class="resultado-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Latas Necessárias:</span>
+                        <strong id="latasNecessarias">0 latas</strong>
+                    </div>
+                    <div class="resultado-observacao">
+                        <p><strong>Observação:</strong> Recomendamos comprar 10% a mais para eventuais retoques.</p>
+                    </div>
+                    
+                    <button onclick="solicitarOrcamento()" class="btn-orcamento">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-container">
+                        <img src="img/logo_atual-removebg-preview.png" alt="RC Pinturas" class="footer-logo">
+                        <h3>RC Pinturas</h3>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (11) 95583-8039</p>
+                    <p><i class="fab fa-instagram"></i> @oliveira_pintor</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/oliveira_pintor/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5511955838039?text=Ol%C3%A1%2C%20pequei%20seu%20contato%20no%20seu%20site%2C%20poderia%20me%20fazer%20um%20or%C3%A7amento%3F" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+            </div>
+        </div>
+    </footer>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511955838039?text=Ol%C3%A1%2C%20pequei%20seu%20contato%20no%20seu%20site%2C%20poderia%20me%20fazer%20um%20or%C3%A7amento%3F" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+<!-- Antes de fechar a tag body -->
+    <script src="paletas.js"></script>
+</body>
+</html>
+
+

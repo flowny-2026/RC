@@ -1,0 +1,191 @@
+/* Depoimentos Section */
+.depoimentos {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/background 3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.depoimentos .section-header h2,
+.depoimentos .section-header p {
+    color: white;
+}
+
+.depoimentos-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+}
+
+/* Adicionando container para controlar o overflow */
+.depoimentos-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.depoimento {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(29, 53, 87, 0.1);
+    text-align: center;
+    transition: all 0.5s ease;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animação de fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de slide */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.depoimento.active {
+    display: block;
+    animation: slideIn 0.7s ease-in-out forwards;
+}
+
+.depoimento.inactive {
+    display: none;
+}
+
+.depoimento.exit {
+    animation: slideOut 0.7s ease-in-out forwards;
+}
+
+.depoimento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(29, 53, 87, 0.15);
+}
+
+.stars {
+    color: #F4A261;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.depoimento p {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.cliente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cliente img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cliente-info h4 {
+    color: #1D3557;
+    margin-bottom: 0.2rem;
+}
+
+.cliente-info span {
+    color: #F4A261;
+    font-size: 0.9rem;
+}
+
+/* Estilos para navegação do slider */
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.slider-nav button {
+    background: #F4A261;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(244, 162, 97, 0.3);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.slider-nav button:hover {
+    background: #E76F51;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+}
+
+/* Indicadores de slide */
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #F4A261;
+    transform: scale(1.2);
+}

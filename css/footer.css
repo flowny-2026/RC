@@ -1,0 +1,152 @@
+/* Footer */
+.footer {
+    background: #1D3557;
+    color: white;
+    padding: 40px 0 20px;
+    width: 100%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+}
+
+/* Footer logo styles */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+}
+
+.footer-brand h3 {
+    color: #F4A261;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    color: #F4A261;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #F4A261;
+}
+
+.footer-contact p {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact i {
+    color: #F4A261;
+    margin-right: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+}
+
+/* Estilos para ícones sociais no footer */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-brand {
+        grid-column: 1 / -1;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .brand-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-links, .footer-contact, .footer-social {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-contact i {
+        margin-right: 0.5rem;
+    }
+}
