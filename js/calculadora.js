@@ -1,35 +1,11 @@
-// Menu hamburger toggle
-// Adicione este código ao arquivo script.js para garantir que o menu hambúrguer funcione
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            // Adiciona classe ao body para prevenir rolagem quando menu está aberto
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-    }
-});
+// ═══════════════════════════════════════════
+//   CALCULADORA DE TINTA — RC Pintura e Decorações
+//   Adicione este arquivo em: js/calculadora.js
+//   E no HTML antes de </body>:
+//   <script src="js/calculadora.js"></script>
+// ═══════════════════════════════════════════
 
-
-// ══════════════════════════════════════════════════════════════
-// CALCULADORA DE TINTA
-// ══════════════════════════════════════════════════════════════
-
-// Dados dos tipos de tinta
+// ── Dados dos tipos de tinta ──
 const tintas = [
     { id: 'acrilica', name: 'Tinta Acrílica',   icon: '🪣', rend: 12, latas: [3.6, 18],       cor: '#4a90d9', desc: '12 m²/L' },
     { id: 'latex',    name: 'Látex PVA',         icon: '🫙', rend: 10, latas: [3.6, 18],       cor: '#d4c254', desc: '10 m²/L' },
@@ -42,7 +18,7 @@ const tintas = [
 
 let selectedPaint = null;
 
-// Renderiza os cards de tinta
+// ── Renderiza os cards de tinta ──
 function renderCards() {
     const grid = document.getElementById('paintGrid');
     if (!grid) return;
@@ -63,7 +39,7 @@ function renderCards() {
     });
 }
 
-// Seleciona um tipo de tinta
+// ── Seleciona um tipo de tinta ──
 function selectPaint(id) {
     selectedPaint = id;
     document.querySelectorAll('.paint-card').forEach(c => {
@@ -71,7 +47,7 @@ function selectPaint(id) {
     });
 }
 
-// Cálculo principal
+// ── Cálculo principal (nome usado no seu HTML) ──
 function calcularTintaNova() {
     const largura     = parseFloat(document.getElementById('largura').value);
     const comprimento = parseFloat(document.getElementById('comprimento').value);
@@ -139,50 +115,5 @@ function calcularTintaNova() {
     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Inicializa quando o DOM estiver pronto
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderCards);
-} else {
-    renderCards();
-}
-
-
-// ══════════════════════════════════════════════════════════════
-// FILTRO DE PORTFÓLIO
-// ══════════════════════════════════════════════════════════════
-
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-    // Mostrar apenas residencial ao carregar a página
-    portfolioItems.forEach(item => {
-        if (item.dataset.category === 'residencial') {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filterValue = this.dataset.filter;
-
-            // Remove active de todos os botões
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Adiciona active ao botão clicado
-            this.classList.add('active');
-
-            // Filtra os itens
-            portfolioItems.forEach(item => {
-                if (item.dataset.category === filterValue) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.5s ease';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-});
+// ── Inicializa quando a página carregar ──
+document.addEventListener('DOMContentLoaded', renderCards);
