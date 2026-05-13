@@ -200,8 +200,93 @@ if (document.readyState === 'loading') {
 
 
 // ══════════════════════════════════════════════════════════════
-// FORMULÁRIO DE CONTATO - WEB3FORMS (Modo Nativo)
+// FORMULÁRIO DE CONTATO - WEB3FORMS (Modo Assíncrono)
 // ══════════════════════════════════════════════════════════════
-// O formulário usa action e method nativos do HTML
-// Web3Forms redireciona automaticamente após o envio
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    
+    if (form) {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalHTML = submitBtn.innerHTML;
+            
+            // Mostra loading
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
+            // Prepara os dados
+            const formData = new FormData(event.target);
+            formData.append("access_key", "ba52a78b-3fbd-4d98-83f1-9db204250c3b");
+            
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Sucesso - Mostra mensagem verde
+                    showMessage('success', '<i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    form.reset();
+                } else {
+                    // Erro - Mostra mensagem vermelha
+                    showMessage('error', '<i class="fas fa-exclamation-circle"></i> Erro ao enviar. Por favor, tente novamente.');
+                }
+            } catch (error) {
+                // Erro de conexão
+                showMessage('error', '<i class="fas fa-exclamation-circle"></i> Erro de conexão. Verifique sua internet e tente novamente.');
+            } finally {
+                // Restaura o botão
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    // Função para mostrar mensagens
+    function showMessage(type, message) {
+        // Remove mensagem anterior se existir
+        const oldMessage = document.querySelector('.form-result-message');
+        if (oldMessage) {
+            oldMessage.remove();
+        }
+        
+        // Cria nova mensagem
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'form-result-message';
+        messageDiv.innerHTML = message;
+        
+        if (type === 'success') {
+            messageDiv.style.backgroundColor = '#d4edda';
+            messageDiv.style.color = '#155724';
+            messageDiv.style.border = '1px solid #c3e6cb';
+        } else {
+            messageDiv.style.backgroundColor = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.border = '1px solid #f5c6cb';
+        }
+        
+        messageDiv.style.padding = '15px';
+        messageDiv.style.borderRadius = '8px';
+        messageDiv.style.marginBottom = '15px';
+        messageDiv.style.textAlign = 'center';
+        messageDiv.style.fontWeight = '500';
+        
+        // Insere antes do botão
+        const submitBtn = form.querySelector('button[type="submit"]');
+        form.insertBefore(messageDiv, submitBtn);
+        
+        // Remove após 5 segundos
+        setTimeout(() => {
+            messageDiv.style.transition = 'opacity 0.5s';
+            messageDiv.style.opacity = '0';
+            setTimeout(() => messageDiv.remove(), 500);
+        }, 5000);
+    }
+});
 
