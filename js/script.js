@@ -200,77 +200,8 @@ if (document.readyState === 'loading') {
 
 
 // ══════════════════════════════════════════════════════════════
-// FORMULÁRIO DE CONTATO - WEB3FORMS
+// FORMULÁRIO DE CONTATO - WEB3FORMS (Modo Nativo)
 // ══════════════════════════════════════════════════════════════
+// O formulário usa action e method nativos do HTML
+// Web3Forms redireciona automaticamente após o envio
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-    const formMessage = document.getElementById('form-message');
-
-    if (form && submitBtn) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(form);
-            formData.append("access_key", "ba52a78b-3fbd-4d98-83f1-9db204250c3b");
-            
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
-            
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    // Sucesso
-                    if (formMessage) {
-                        formMessage.style.display = 'block';
-                        formMessage.style.backgroundColor = '#d4edda';
-                        formMessage.style.color = '#155724';
-                        formMessage.style.border = '1px solid #c3e6cb';
-                        formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.';
-                        
-                        // Esconde a mensagem após 5 segundos
-                        setTimeout(() => {
-                            formMessage.style.display = 'none';
-                        }, 5000);
-                    } else {
-                        alert("Sucesso! Sua mensagem foi enviada.");
-                    }
-                    form.reset();
-                } else {
-                    // Erro
-                    if (formMessage) {
-                        formMessage.style.display = 'block';
-                        formMessage.style.backgroundColor = '#f8d7da';
-                        formMessage.style.color = '#721c24';
-                        formMessage.style.border = '1px solid #f5c6cb';
-                        formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Erro: ' + data.message;
-                    } else {
-                        alert("Erro: " + data.message);
-                    }
-                }
-            } catch (error) {
-                // Erro de conexão
-                if (formMessage) {
-                    formMessage.style.display = 'block';
-                    formMessage.style.backgroundColor = '#f8d7da';
-                    formMessage.style.color = '#721c24';
-                    formMessage.style.border = '1px solid #f5c6cb';
-                    formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Algo deu errado. Por favor, tente novamente.';
-                } else {
-                    alert("Algo deu errado. Por favor, tente novamente.");
-                }
-            } finally {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
-});

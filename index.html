@@ -416,8 +416,8 @@
                 </div>
                 <div class="contato-form">
                     <!-- Formulário de contato integrado com Web3Forms -->
-                    <form id="contact-form" class="enhanced-form">
-                        <!-- Web3Forms Access Key (será adicionado via JavaScript) -->
+                    <form id="contact-form" class="enhanced-form" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="ba52a78b-3fbd-4d98-83f1-9db204250c3b">
                         
                         <!-- Configurações opcionais do Web3Forms -->
@@ -477,9 +477,6 @@
                             <input type="checkbox" id="newsletter" name="newsletter" value="sim">
                             <label for="newsletter">Quero receber dicas e novidades por e-mail</label>
                         </div>
-                        
-                        <!-- Mensagem de sucesso/erro -->
-                        <div id="form-message" style="display: none; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: center;"></div>
                         
                         <button type="submit" class="btn-primary">
                             <i class="fas fa-paper-plane"></i>
