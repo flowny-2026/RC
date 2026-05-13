@@ -205,59 +205,71 @@ if (document.readyState === 'loading') {
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
     const formMessage = document.getElementById('form-message');
 
-    if (form) {
-        form.addEventListener('submit', async function(e) {
+    if (form && submitBtn) {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            // Desabilita o botão durante o envio
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-
-            // Coleta os dados do formulário
+            
             const formData = new FormData(form);
-
+            formData.append("access_key", "ba52a78b-3fbd-4d98-83f1-9db204250c3b");
+            
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
             try {
-                // Envia para o Web3Forms
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
                     body: formData
                 });
-
+                
                 const data = await response.json();
-
-                if (data.success) {
+                
+                if (response.ok) {
                     // Sucesso
-                    formMessage.style.display = 'block';
-                    formMessage.style.backgroundColor = '#d4edda';
-                    formMessage.style.color = '#155724';
-                    formMessage.style.border = '1px solid #c3e6cb';
-                    formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.';
-                    
-                    // Limpa o formulário
+                    if (formMessage) {
+                        formMessage.style.display = 'block';
+                        formMessage.style.backgroundColor = '#d4edda';
+                        formMessage.style.color = '#155724';
+                        formMessage.style.border = '1px solid #c3e6cb';
+                        formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contato em breve.';
+                        
+                        // Esconde a mensagem após 5 segundos
+                        setTimeout(() => {
+                            formMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        alert("Sucesso! Sua mensagem foi enviada.");
+                    }
                     form.reset();
-                    
-                    // Esconde a mensagem após 5 segundos
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
                 } else {
                     // Erro
-                    throw new Error('Erro ao enviar formulário');
+                    if (formMessage) {
+                        formMessage.style.display = 'block';
+                        formMessage.style.backgroundColor = '#f8d7da';
+                        formMessage.style.color = '#721c24';
+                        formMessage.style.border = '1px solid #f5c6cb';
+                        formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Erro: ' + data.message;
+                    } else {
+                        alert("Erro: " + data.message);
+                    }
                 }
             } catch (error) {
-                // Erro
-                formMessage.style.display = 'block';
-                formMessage.style.backgroundColor = '#f8d7da';
-                formMessage.style.color = '#721c24';
-                formMessage.style.border = '1px solid #f5c6cb';
-                formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Erro ao enviar mensagem. Por favor, tente novamente.';
+                // Erro de conexão
+                if (formMessage) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.backgroundColor = '#f8d7da';
+                    formMessage.style.color = '#721c24';
+                    formMessage.style.border = '1px solid #f5c6cb';
+                    formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Algo deu errado. Por favor, tente novamente.';
+                } else {
+                    alert("Algo deu errado. Por favor, tente novamente.");
+                }
             } finally {
-                // Reabilita o botão
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Solicitar Orçamento Gratuito';
             }
         });
     }

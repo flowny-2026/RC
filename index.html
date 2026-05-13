@@ -416,8 +416,8 @@
                 </div>
                 <div class="contato-form">
                     <!-- Formulário de contato integrado com Web3Forms -->
-                    <form id="contact-form" class="enhanced-form" action="https://api.web3forms.com/submit" method="POST">
-                        <!-- Web3Forms Access Key -->
+                    <form id="contact-form" class="enhanced-form">
+                        <!-- Web3Forms Access Key (será adicionado via JavaScript) -->
                         <input type="hidden" name="access_key" value="ba52a78b-3fbd-4d98-83f1-9db204250c3b">
                         
                         <!-- Configurações opcionais do Web3Forms -->
@@ -428,7 +428,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome">Nome Completo *</label>
-                                <input type="text" id="nome" name="nome" required>
+                                <input type="text" id="nome" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="telefone">Telefone/WhatsApp *</label>
@@ -471,7 +471,7 @@
                         </div>
                         <div class="form-group">
                             <label for="mensagem">Descreva seu projeto *</label>
-                            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Conte-nos mais sobre seu projeto..."></textarea>
+                            <textarea id="mensagem" name="message" rows="4" required placeholder="Conte-nos mais sobre seu projeto..."></textarea>
                         </div>
                         <div class="form-group checkbox-group">
                             <input type="checkbox" id="newsletter" name="newsletter" value="sim">
@@ -481,7 +481,7 @@
                         <!-- Mensagem de sucesso/erro -->
                         <div id="form-message" style="display: none; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: center;"></div>
                         
-                        <button type="submit" class="btn-primary" id="submit-btn">
+                        <button type="submit" class="btn-primary">
                             <i class="fas fa-paper-plane"></i>
                             Solicitar Orçamento Gratuito
                         </button>
