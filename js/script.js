@@ -151,19 +151,23 @@ if (document.readyState === 'loading') {
 // FILTRO DE PORTFÓLIO
 // ══════════════════════════════════════════════════════════════
 
-document.addEventListener('DOMContentLoaded', function() {
+// Função para inicializar o filtro de portfólio
+function initPortfolioFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    if (filterButtons.length === 0 || portfolioItems.length === 0) return;
 
     // Mostrar apenas residencial ao carregar a página
     portfolioItems.forEach(item => {
         if (item.dataset.category === 'residencial') {
-            item.style.display = 'block';
+            item.classList.add('show');
         } else {
-            item.style.display = 'none';
+            item.classList.remove('show');
         }
     });
 
+    // Adicionar event listeners aos botões
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filterValue = this.dataset.filter;
@@ -177,12 +181,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // Filtra os itens
             portfolioItems.forEach(item => {
                 if (item.dataset.category === filterValue) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.5s ease';
+                    item.classList.add('show');
                 } else {
-                    item.style.display = 'none';
+                    item.classList.remove('show');
                 }
             });
         });
     });
-});
+}
+
+// Inicializar quando o DOM estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortfolioFilter);
+} else {
+    initPortfolioFilter();
+}
+
